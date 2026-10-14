@@ -1,0 +1,72 @@
+
+[
+  {
+    "id": "trang-chu",
+    "name": "Trang chủ",
+    "slug": "trang-chu",
+    "children": []
+  },
+  {
+    "id": "thoi-su",
+    "name": "Thời sự",
+    "slug": "thoi-su",
+    "children": [
+      {
+        "id": "chinh-tri",
+        "name": "Chính trị",
+        "slug": "chinh-tri"
+      },
+      {
+        "id": "giao-thong",
+        "name": "Giao thông",
+        "slug": "giao-thong"
+      },
+      {
+        "id": "moi-truong",
+        "name": "Môi trường",
+        "slug": "moi-truong"
+      }
+    ]
+  },
+  {
+    "id": "the-gioi",
+    "name": "Thế giới",
+    "slug": "the-gioi",
+    "children": [
+      {
+        "id": "quan-su",
+        "name": "Quân sự",
+        "slug": "quan-su"
+      },
+      {
+        "id": "phan-tich-binh-luan",
+        "name": "Phân tích - Bình luận",
+        "slug": "phan-tich-binh-luan"
+      }
+    ]
+  },
+  {
+    "id": "kinh-doanh",
+    "name": "Kinh doanh",
+    "slug": "kinh-doanh",
+    "children": []
+  },
+  {
+    "id": "the-thao",
+    "name": "Thể thao",
+    "slug": "the-thao",
+    "children": []
+  },
+  {
+    "id": "giai-tri",
+    "name": "Giải trí",
+    "slug": "giai-tri",
+    "children": []
+  },
+  {
+    "id": "cong-nghe",
+    "name": "Công nghệ",
+    "slug": "cong-nghe",
+    "children": []
+  }
+]

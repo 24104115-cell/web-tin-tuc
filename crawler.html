@@ -1,0 +1,256 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler bài báo | Tin Mới 24H</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            font-family: Arial, sans-serif;
+            color: #222;
+            background: #f3f5f8;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 28px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 16px #00000012;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #bd101b;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            margin-top: 7px;
+            padding: 12px;
+            border: 1px solid #ccd1d8;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 13px 18px;
+            border: 0;
+            border-radius: 6px;
+            background: #bd101b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #950c14;
+        }
+
+        .secondary {
+            margin-left: 8px;
+            background: #424b57;
+        }
+
+        .secondary:hover {
+            background: #2d343c;
+        }
+
+        #message {
+            margin-top: 18px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 12px;
+            background: #fff6df;
+            border-radius: 6px;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: #bd101b;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px;
+            }
+
+            .secondary {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Crawler bài báo</h1>
+
+        <p class="description">
+            Nhập URL và thông tin bài báo để chuẩn hóa,
+            lưu vào trình duyệt và hiển thị trên trang tin tức.
+        </p>
+
+        <form id="crawlerForm">
+            <label for="url">URL bài báo *</label>
+            <input
+                id="url"
+                type="url"
+                placeholder="https://dantri.com.vn/..."
+                required
+            >
+
+            <label for="title">Tiêu đề *</label>
+            <input id="title" required>
+
+            <label for="category">Chuyên mục *</label>
+            <input
+                id="category"
+                placeholder="Thời sự, Thế giới, Kinh doanh..."
+                required
+            >
+
+            <label for="author">Tác giả</label>
+            <input id="author" placeholder="Tên tác giả hoặc ban biên tập">
+
+            <label for="publishedAt">Ngày đăng</label>
+            <input id="publishedAt" type="date">
+
+            <label for="image">URL ảnh đại diện</label>
+            <input
+                id="image"
+                type="url"
+                placeholder="https://.../anh-bai-bao.jpg"
+            >
+
+            <label for="excerpt">Mô tả ngắn</label>
+            <textarea id="excerpt" rows="3"></textarea>
+
+            <label for="content">Nội dung bài báo *</label>
+            <textarea
+                id="content"
+                rows="10"
+                placeholder="Dán nội dung bài báo vào đây..."
+                required
+            ></textarea>
+
+            <button type="submit">Lưu bài báo</button>
+            <button type="button" id="viewPosts" class="secondary">
+                Xem số bài đã lưu
+            </button>
+        </form>
+
+        <p id="message" role="status"></p>
+
+        <div class="note">
+            <strong>Lưu ý:</strong> Phiên bản này lưu bài viết do bạn nhập
+            vào LocalStorage của trình duyệt. Nó chưa tự động đọc nội dung
+            từ URL Dân trí. Việc lấy dữ liệu tự động cần xử lý thêm ở phía
+            máy chủ nếu website chặn truy cập từ trình duyệt.
+        </div>
+
+        <a class="back-link" href="./index.html">
+            ← Quay lại trang chủ
+        </a>
+    </main>
+
+    <!-- crawler.html và thư mục js nằm cùng cấp -->
+    <script src="./js/crawler.js"></script>
+
+    <script>
+        const form = document.getElementById("crawlerForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (typeof saveArticle !== "function") {
+                message.textContent =
+                    "Lỗi: Không tải được js/crawler.js. " +
+                    "Hãy kiểm tra vị trí file và Console.";
+                return;
+            }
+
+            const article = {
+                id: Date.now().toString(),
+                url: document.getElementById("url").value.trim(),
+                title: document.getElementById("title").value.trim(),
+                category: document.getElementById("category").value.trim(),
+                author: document.getElementById("author").value.trim(),
+                publishedAt:
+                    document.getElementById("publishedAt").value,
+                image: document.getElementById("image").value.trim(),
+                excerpt: document.getElementById("excerpt").value.trim(),
+                content: document.getElementById("content").value.trim(),
+                source: "Dân trí"
+            };
+
+            try {
+                const savedArticle = saveArticle(article);
+
+                message.textContent =
+                    "Đã lưu thành công: " + savedArticle.title;
+                message.style.color = "green";
+
+                form.reset();
+            } catch (error) {
+                message.textContent = "Lỗi khi lưu: " + error.message;
+                message.style.color = "red";
+            }
+        });
+
+        document.getElementById("viewPosts")
+            .addEventListener("click", function () {
+                try {
+                    const posts = JSON.parse(
+                        localStorage.getItem("posts") || "[]"
+                    );
+
+                    message.textContent =
+                        "Hiện có " + posts.length +
+                        " bài viết được lưu trong LocalStorage.";
+                    message.style.color = "#222";
+                } catch (error) {
+                    message.textContent =
+                        "Không đọc được dữ liệu đã lưu.";
+                    message.style.color = "red";
+                }
+            });
+    </script>
+</body>
+</html>
+```

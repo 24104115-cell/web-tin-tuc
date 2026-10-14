@@ -1,0 +1,42 @@
+
+[
+  {
+    "id": "post-001",
+    "title": "Tin tức thời sự nổi bật hôm nay",
+    "slug": "tin-tuc-thoi-su-noi-bat-hom-nay",
+    "excerpt": "Tổng hợp những thông tin thời sự đáng chú ý trong ngày.",
+    "image": "https://image.bnews.vn/MediaUpload/Org/2026/04/03/174221-hop-bao-ve-du-kien-chuong-trinh-ky-hop-thu-nhat-quoc-hoi-khoa-xvi.jpg",
+    "content": "Đây là nội dung bài viết mẫu cho website tin tức.",
+    "author": "Ban biên tập",
+    "category": "Thời sự",
+    "publishedAt": "2026-10-13 09:00",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/"
+  },
+  {
+    "id": "post-002",
+    "title": "Những thông tin thế giới đáng chú ý",
+    "slug": "nhung-thong-tin-the-gioi-dang-chu-y",
+    "excerpt": "Một số tin tức quốc tế được quan tâm trong ngày.",
+    "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iXIHJKi905u4/v1/1200x800.jpg",
+    "content": "Đây là nội dung mẫu thuộc chuyên mục Thế giới.",
+    "author": "Ban biên tập",
+    "category": "Thế giới",
+    "publishedAt": "2026-10-12 15:30",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/"
+  },
+  {
+    "id": "post-003",
+    "title": "Công nghệ và xu hướng phát triển mới",
+    "slug": "cong-nghe-va-xu-huong-phat-trien-moi",
+    "excerpt": "Khám phá những xu hướng công nghệ áng quđan tâm.",
+    "image": "https://cilab.com.ng/courses/bcs/imgs/AI%20Micro-chip.jpg",
+    "content": "Đây là nội dung mẫu thuộc chuyên mục Công nghệ.",
+    "author": "Ban biên tập",
+    "category": "Công nghệ",
+    "publishedAt": "2026-10-11 10:00",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/"
+  }
+]

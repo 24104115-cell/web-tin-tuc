@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website tin tức tổng hợp">
+  <title>Tin Mới 24h - Tin tức mỗi ngày</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">TIN MỚI <span>24H</span></a>
+      <a href="crawler.html" class="crawler-link">Thu thập tin tức</a>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-inner" id="categoryNav">
+      <a href="index.html" class="nav-link active">Trang chủ</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="page-heading">
+      <p class="eyebrow">CẬP NHẬT MỖI NGÀY</p>
+      <h1 id="categoryTitle">Tin tức mới nhất</h1>
+      <p>Tổng hợp tin tức và những sự kiện đáng chú ý.</p>
+    </section>
+
+    <section id="featuredSection" class="featured-grid">
+      <p>Đang tải tin tức...</p>
+    </section>
+
+    <section class="latest-section">
+      <div class="section-heading">
+        <h2>Tin mới cập nhật</h2>
+      </div>
+      <div id="postList" class="post-list">
+        <p>Đang tải danh sách bài viết...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo">TIN MỚI <span>24H</span></a>
+        <p>Website tin tức phục vụ mục đích học tập và thực hành xây dựng web.</p>
+      </div>
+      <div>
+        <h3>Liên kết nhanh</h3>
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html">Tin mới</a>
+        <a href="crawler.html">Thu thập tin tức</a>
+      </div>
+      <div>
+        <h3>Liên hệ</h3>
+        <p>Email: contact@example.com</p>
+        <p>Việt Nam</p>
+      </div>
+      <div>
+        <h3>Mạng xã hội</h3>
+        <p>Facebook · YouTube · TikTok</p>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 Tin Mới 24h. Bài tập lớn xây dựng website tin tức.
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
